@@ -1,0 +1,24 @@
+data "aws_ami" "devops_with_aws" {
+  most_recent      = true
+  owners           = ["973714476881"]
+
+  filter {
+    name   = "name"
+    values = ["Redhat-9-DevOps-Practice"]
+  }
+
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+}
+
+data "aws_instance" "terraform_instance" {
+   instance_id = "i-0c04c9a9bff646f71" 
+
+}
